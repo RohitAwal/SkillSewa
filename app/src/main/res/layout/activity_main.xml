@@ -6,19 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imgViewLogo"
-        android:src="@mipmap/ic_launcher_round"
-        android:layout_marginTop="28dp"
-        android:layout_marginLeft="150dp">
+<!--    <ImageView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:id="@+id/imgViewLogo"-->
+<!--        android:src="@mipmap/ic_launcher_round"-->
+<!--        android:layout_marginTop="28dp"-->
+<!--        android:layout_marginLeft="150dp">-->
 
-    </ImageView>
+<!--    </ImageView>-->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imgViewLogo"
+
         android:layout_marginTop="10dp"
         android:text="Seepage Inspection Report"
         android:textStyle="bold"
@@ -66,57 +66,57 @@
         android:layout_marginLeft="130dp">
 
     </EditText>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/edtTxtCity"
-        android:layout_marginTop="5dp"
-        android:text="Home Inspector"
-        android:textStyle="bold"
-        android:textSize="15dp"
-        android:id="@+id/txtViewHomeInspector"
-        android:layout_marginLeft="130dp">
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@+id/edtTxtCity"-->
+<!--        android:layout_marginTop="5dp"-->
+<!--        android:text="Home Inspector"-->
+<!--        android:textStyle="bold"-->
+<!--        android:textSize="15dp"-->
+<!--        android:id="@+id/txtViewHomeInspector"-->
+<!--        android:layout_marginLeft="130dp">-->
 
-    </TextView>
+<!--    </TextView>-->
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="Enter the name of Inspector"
-        android:layout_below="@+id/txtViewHomeInspector"
+        android:layout_below="@+id/edtTxtCity"
         android:id="@+id/edtTxtInspector"
         android:layout_marginTop="5dp"
         android:layout_marginLeft="120dp">
 
     </EditText>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/edtTxtInspector"
-        android:layout_marginTop="5dp"
-        android:text="Prepared By:"
-        android:textStyle="bold"
-        android:textSize="15dp"
-        android:id="@+id/txtViewPrepared"
-        android:layout_marginLeft="135dp">
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@+id/edtTxtInspector"-->
+<!--        android:layout_marginTop="5dp"-->
+<!--        android:text="Prepared By:"-->
+<!--        android:textStyle="bold"-->
+<!--        android:textSize="15dp"-->
+<!--        android:id="@+id/txtViewPrepared"-->
+<!--        android:layout_marginLeft="135dp">-->
 
-    </TextView>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/txtViewPrepared"
-        android:layout_marginTop="5dp"
-        android:text="Skill Sewa"
-        android:textStyle="bold"
-        android:textSize="15dp"
-        android:id="@+id/txtViewSkillSewa"
-        android:layout_marginLeft="135dp">
+<!--    </TextView>-->
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@+id/edtTxtInspector"-->
+<!--        android:layout_marginTop="5dp"-->
+<!--        android:text="Skill Sewa"-->
+<!--        android:textStyle="bold"-->
+<!--        android:textSize="15dp"-->
+<!--        android:id="@+id/txtViewSkillSewa"-->
+<!--        android:layout_marginLeft="135dp">-->
 
-    </TextView>
+<!--    </TextView>-->
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txtViewSkillSewa"
+        android:layout_below="@+id/edtTxtInspector"
         android:layout_marginTop="5dp"
         android:layout_marginLeft="135dp"
         android:hint="Enter the date of inspection"

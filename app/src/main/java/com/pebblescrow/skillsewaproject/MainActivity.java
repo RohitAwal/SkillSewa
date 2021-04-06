@@ -38,8 +38,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         init();
-        sqLiteHelper = new SQLiteHelper(this, "SkillSewa.sqlite",null,1);
-        sqLiteHelper.queryData("CREATE TABLE IF NOT EXISTS FOOD (ID INTEGER PRIMARY KEY AUTOINCREMENT, image BLOG, location VARCHAR, city VARCHAR, inspector VARCHAR, DateOfInspection VARCHAR)");
+        sqLiteHelper = new SQLiteHelper(this, "SKILLSEWA.sqlite",null,1);
+        sqLiteHelper.queryData("CREATE TABLE IF NOT EXISTS SKILLSEWA (ID INTEGER PRIMARY KEY AUTOINCREMENT, image BLOG, location VARCHAR, city VARCHAR, inspector VARCHAR, DateOfInspection VARCHAR)");
 
         btnSelectImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
                 try {
 
                     sqLiteHelper.insertData(
-                            (imageViewToByte(imgViewFront)),
+                            imageViewToByte(imgViewFront),
                             edtLocation.getText().toString().trim(),
                             edtCity.getText().toString().trim(),
                             edtInspector.getText().toString().trim(),
