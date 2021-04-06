@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imgViewLogo"
+        android:src="@mipmap/ic_launcher_round"
+        android:layout_marginTop="28dp"
+        android:layout_marginLeft="150dp">
+
+    </ImageView>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imgViewLogo"
+        android:layout_marginTop="10dp"
+        android:text="Seepage Inspection Report"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:id="@+id/txtViewTittle"
+        android:layout_marginLeft="90dp">
+
+    </TextView>
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@+id/txtViewTittle"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="140dp"
+        android:id="@+id/imgViewFrontPhoto"
+        android:src="@drawable/ic_imgee">
+    </ImageView>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imgViewFrontPhoto"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="130dp"
+        android:text="Select Image"
+        android:id="@+id/btnSelectImage">
+
+    </Button>
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Enter the location"
+        android:layout_below="@+id/btnSelectImage"
+        android:id="@+id/edtTxtLocation"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="130dp">
+
+    </EditText>
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Enter the city"
+        android:layout_below="@+id/edtTxtLocation"
+        android:id="@+id/edtTxtCity"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="130dp">
+
+    </EditText>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edtTxtCity"
+        android:layout_marginTop="5dp"
+        android:text="Home Inspector"
+        android:textStyle="bold"
+        android:textSize="15dp"
+        android:id="@+id/txtViewHomeInspector"
+        android:layout_marginLeft="130dp">
+
+    </TextView>
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Enter the name of Inspector"
+        android:layout_below="@+id/txtViewHomeInspector"
+        android:id="@+id/edtTxtInspector"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="120dp">
+
+    </EditText>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edtTxtInspector"
+        android:layout_marginTop="5dp"
+        android:text="Prepared By:"
+        android:textStyle="bold"
+        android:textSize="15dp"
+        android:id="@+id/txtViewPrepared"
+        android:layout_marginLeft="135dp">
+
+    </TextView>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtViewPrepared"
+        android:layout_marginTop="5dp"
+        android:text="Skill Sewa"
+        android:textStyle="bold"
+        android:textSize="15dp"
+        android:id="@+id/txtViewSkillSewa"
+        android:layout_marginLeft="135dp">
+
+    </TextView>
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtViewSkillSewa"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="135dp"
+        android:hint="Enter the date of inspection"
+        android:id="@+id/edtTxtDOI">
+
+    </EditText>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edtTxtDOI"
+        android:text="SAVE"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="135dp"
+        android:id="@+id/btnSave">
+
+    </Button>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnSave"
+        android:text="View List"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="135dp"
+        android:id="@+id/btnViewList">
+
+    </Button>
+
+
+
+
+
+</RelativeLayout>
