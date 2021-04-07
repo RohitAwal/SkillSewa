@@ -26,7 +26,7 @@ import java.io.InputStream;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText edtLocation, edtCity, edtInspector, edtDOI, edtTxtHN;
+    EditText edtLocation, edtCity, edtInspector, edtDOI, edtHN;
     Button btnSelectImage, btnSave, btnViewList;
     ImageView imgViewFront;
 
@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         init();
         sqLiteHelper = new SQLiteHelper(this, "SKILLSEWA.sqlite",null,1);
-        sqLiteHelper.queryData("CREATE TABLE IF NOT EXISTS SKILLSEWA (ID INTEGER PRIMARY KEY AUTOINCREMENT, image BLOG, location VARCHAR, city VARCHAR, inspector VARCHAR, DateOfInspection VARCHAR, HouseName VARCHAR)");
+        sqLiteHelper.queryData("CREATE TABLE IF NOT EXISTS SKILLSEWA (ID INTEGER PRIMARY KEY AUTOINCREMENT, image BLOG, location VARCHAR, city VARCHAR, inspector VARCHAR, DateOfInspection VARCHAR, houseName VARCHAR)");
 
         btnSelectImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
                             edtCity.getText().toString().trim(),
                             edtInspector.getText().toString().trim(),
                             edtDOI.getText().toString().trim(),
-                            edtTxtHN.getText().toString().trim()
+                            edtHN.getText().toString().trim()
 
 
                     );
@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
                     edtCity.setText("");
                     edtInspector.setText("");
                     edtDOI.setText("");
-                    edtTxtHN.setText("");
+                    edtHN.setText("");
                 }
                 catch (Exception e){
                    e.printStackTrace();
@@ -137,7 +137,7 @@ public class MainActivity extends AppCompatActivity {
         edtCity = (EditText) findViewById(R.id.edtTxtCity);
         edtInspector= (EditText) findViewById(R.id.edtTxtInspector);
         edtDOI = (EditText) findViewById(R.id.edtTxtDOI);
-        edtTxtHN = (EditText) findViewById(R.id.edtTxtHN);
+        edtHN = (EditText) findViewById(R.id.edtTxtHN);
         btnSelectImage = (Button) findViewById(R.id.btnSelectImage);
         btnSave = (Button) findViewById(R.id.btnSave);
         btnViewList = (Button) findViewById(R.id.btnViewList);

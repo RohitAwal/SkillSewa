@@ -7,7 +7,7 @@ public class Elements {
     private String city;
     private String inspector;
     private String DOI;
-    private String HouseName;
+    private String houseName;
 
     public Elements(int id, byte[] image, String location, String city, String inspector, String DOI, String houseName) {
         this.id = id;
@@ -16,7 +16,7 @@ public class Elements {
         this.city = city;
         this.inspector = inspector;
         this.DOI = DOI;
-        HouseName = houseName;
+        this.houseName = houseName;
     }
 
     public int getId() {
@@ -68,10 +68,10 @@ public class Elements {
     }
 
     public String getHouseName() {
-        return HouseName;
+        return houseName;
     }
 
     public void setHouseName(String houseName) {
-        HouseName = houseName;
+        this.houseName = houseName;
     }
 }
