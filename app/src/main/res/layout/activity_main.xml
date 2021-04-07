@@ -123,10 +123,21 @@
         android:id="@+id/edtTxtDOI">
 
     </EditText>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edtTxtInspector"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="135dp"
+        android:hint="Enter the housen name"
+        android:id="@+id/edtTxtHN">
+
+    </EditText>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/edtTxtDOI"
+        android:layout_below="@+id/edtTxtHN"
         android:text="SAVE"
         android:layout_marginTop="5dp"
         android:layout_marginLeft="135dp"

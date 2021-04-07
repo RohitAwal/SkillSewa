@@ -36,8 +36,9 @@ public class Elementslist extends AppCompatActivity {
             String city = cursor.getString(3);
             String inspector = cursor.getString(4);
             String DOI = cursor.getString(5);
+            String HouseName = cursor.getString(6);
 
-            list.add(new Elements(id, image, location, city, inspector,DOI));
+            list.add(new Elements(id, image, location, city, inspector, DOI, HouseName ));
 
         }
         adapter.notifyDataSetChanged();
