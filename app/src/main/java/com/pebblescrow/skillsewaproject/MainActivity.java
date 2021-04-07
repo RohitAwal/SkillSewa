@@ -27,10 +27,11 @@ import java.io.InputStream;
 public class MainActivity extends AppCompatActivity {
 
     EditText edtLocation, edtCity, edtInspector, edtDOI, edtHN;
-    Button btnSelectImage, btnSave, btnViewList;
-    ImageView imgViewFront;
+    Button btnSelectImage, btnSave, btnViewList, btnSelecImgPF1;
+    ImageView imgViewFront, imgViewProblemFinding;
 
     final int REQUEST_CODE_GALLERY = 999;
+    final int REQUEST_CODE_GALLERY1 = 998;
 
     public static SQLiteHelper sqLiteHelper;
     @Override
@@ -39,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         init();
         sqLiteHelper = new SQLiteHelper(this, "SKILLSEWAS.sqlite",null,1);
-        sqLiteHelper.queryData("CREATE TABLE IF NOT EXISTS SKILLSEWAS (ID INTEGER PRIMARY KEY AUTOINCREMENT, image BLOG, location VARCHAR, city VARCHAR, inspector VARCHAR, DateOfInspection VARCHAR, houseName VARCHAR)");
+        sqLiteHelper.queryData("CREATE TABLE IF NOT EXISTS SKILLSEWAS (ID INTEGER PRIMARY KEY AUTOINCREMENT, image BLOG, location VARCHAR, city VARCHAR, inspector VARCHAR, DateOfInspection VARCHAR, houseName VARCHAR, image1 BLOG)");
 
         btnSelectImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,6 +52,18 @@ public class MainActivity extends AppCompatActivity {
                 );
             }
         });
+        btnSelecImgPF1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ActivityCompat.requestPermissions(
+                        MainActivity.this,
+                        new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+                        REQUEST_CODE_GALLERY1
+                );
+            }
+        });
+
+
 
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,7 +76,8 @@ public class MainActivity extends AppCompatActivity {
                             edtCity.getText().toString().trim(),
                             edtInspector.getText().toString().trim(),
                             edtDOI.getText().toString().trim(),
-                            edtHN.getText().toString().trim()
+                            edtHN.getText().toString().trim(),
+                            imageViewTToByte(imgViewProblemFinding)
 
 
                     );
@@ -74,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
                     edtInspector.setText("");
                     edtDOI.setText("");
                     edtHN.setText("");
+                    imgViewProblemFinding.setImageResource(R.mipmap.ic_launcher);
                 }
                 catch (Exception e){
                    e.printStackTrace();
@@ -90,6 +105,14 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    private byte[] imageViewTToByte(ImageView imgViewProblemFinding) {
+        Bitmap bitmap = ((BitmapDrawable)imgViewProblemFinding.getDrawable()).getBitmap();
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+        byte[] byteArray = stream.toByteArray();
+        return byteArray;
+    }
+
     private byte[] imageViewToByte(ImageView imgViewFront) {
         Bitmap bitmap = ((BitmapDrawable)imgViewFront.getDrawable()).getBitmap();
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
@@ -101,11 +124,12 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        if (requestCode == REQUEST_CODE_GALLERY){
+        if (requestCode == REQUEST_CODE_GALLERY || requestCode == REQUEST_CODE_GALLERY1 ){
             if (grantResults.length>0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
                 Intent intent = new Intent(Intent.ACTION_PICK);
                 intent.setType("image/*");
                 startActivityForResult(intent, REQUEST_CODE_GALLERY);
+                startActivityForResult(intent, REQUEST_CODE_GALLERY1);
             }
             else {
                 Toast.makeText(getApplicationContext(), "You don't have to access file location", Toast.LENGTH_SHORT).show();
@@ -116,15 +140,20 @@ public class MainActivity extends AppCompatActivity {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 
+
+
+
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        if (requestCode == REQUEST_CODE_GALLERY && resultCode == RESULT_OK && data!= null){
+        if (requestCode == REQUEST_CODE_GALLERY || requestCode == REQUEST_CODE_GALLERY1 && resultCode == RESULT_OK && data!= null){
             Uri uri = data.getData();
             try {
                 InputStream inputStream = getContentResolver().openInputStream(uri);
 
                 Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
                 imgViewFront.setImageBitmap(bitmap);
+                imgViewProblemFinding.setImageBitmap(bitmap);
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
@@ -141,6 +170,8 @@ public class MainActivity extends AppCompatActivity {
         btnSelectImage = (Button) findViewById(R.id.btnSelectImage);
         btnSave = (Button) findViewById(R.id.btnSave);
         btnViewList = (Button) findViewById(R.id.btnViewList);
+        btnSelecImgPF1 = (Button) findViewById(R.id.btnSelectImagePF1);
         imgViewFront = (ImageView) findViewById(R.id.imgViewFrontPhoto);
+        imgViewProblemFinding = (ImageView) findViewById(R.id.imgViewPF1);
     }
 }

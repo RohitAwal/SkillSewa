@@ -27,7 +27,7 @@ public class Elementslist extends AppCompatActivity {
         gridView.setAdapter(adapter);
 
         //get all data from sqlite
-        Cursor cursor = MainActivity.sqLiteHelper.getData("SELECT * FROM SKILLSEWA");
+        Cursor cursor = MainActivity.sqLiteHelper.getData("SELECT * FROM SKILLSEWAS");
         list.clear();
         while (cursor.moveToNext()){
             int id = cursor.getInt(0);
@@ -37,8 +37,9 @@ public class Elementslist extends AppCompatActivity {
             String inspector = cursor.getString(4);
             String DOI = cursor.getString(5);
             String HouseName = cursor.getString(6);
+            byte[] image1 = cursor.getBlob(7);
 
-            list.add(new Elements(id, image, location, city, inspector, DOI, HouseName ));
+            list.add(new Elements(id, image, location, city, inspector, DOI, HouseName, image1));
 
         }
         adapter.notifyDataSetChanged();
