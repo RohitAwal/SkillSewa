@@ -124,12 +124,12 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        if (requestCode == REQUEST_CODE_GALLERY || requestCode == REQUEST_CODE_GALLERY1 ){
+        if (requestCode == REQUEST_CODE_GALLERY  ){
             if (grantResults.length>0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
                 Intent intent = new Intent(Intent.ACTION_PICK);
                 intent.setType("image/*");
                 startActivityForResult(intent, REQUEST_CODE_GALLERY);
-                startActivityForResult(intent, REQUEST_CODE_GALLERY1);
+
             }
             else {
                 Toast.makeText(getApplicationContext(), "You don't have to access file location", Toast.LENGTH_SHORT).show();
@@ -146,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        if (requestCode == REQUEST_CODE_GALLERY || requestCode == REQUEST_CODE_GALLERY1 && resultCode == RESULT_OK && data!= null){
+        if (requestCode == REQUEST_CODE_GALLERY  && resultCode == RESULT_OK && data!= null){
             Uri uri = data.getData();
             try {
                 InputStream inputStream = getContentResolver().openInputStream(uri);
@@ -160,6 +160,7 @@ public class MainActivity extends AppCompatActivity {
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
+
 
     private void init(){
         edtLocation = (EditText) findViewById(R.id.edtTxtLocation);
