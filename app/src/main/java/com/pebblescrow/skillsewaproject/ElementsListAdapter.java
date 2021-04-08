@@ -39,7 +39,7 @@ public class ElementsListAdapter extends BaseAdapter {
     }
 
     private class ViewHolder{
-        ImageView imageView,imgViewProblemFinding;
+        ImageView imageView;
         TextView textViewLocation, textViewCity, textViewInspector, textViewDOI, textViewHN;
     }
     @Override
@@ -56,7 +56,7 @@ public class ElementsListAdapter extends BaseAdapter {
             holder.textViewInspector = (TextView) row.findViewById(R.id.txtViewInspector);
             holder.textViewDOI = (TextView) row.findViewById(R.id.txtViewDOI);
             holder.textViewHN = (TextView)  row.findViewById(R.id.txtViewHN);
-            holder.imgViewProblemFinding = (ImageView) row.findViewById(R.id.imgViewProblemFinding);
+
 
             row.setTag(holder);
         }
@@ -73,7 +73,7 @@ public class ElementsListAdapter extends BaseAdapter {
         holder.textViewInspector.setText(elements.getInspector());
         holder.textViewDOI.setText(elements.getDOI());
         holder.textViewHN.setText(elements.getHouseName());
-        holder.imgViewProblemFinding.setImageBitmap(bitmap);
+
 
 
         return row;

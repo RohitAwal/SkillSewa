@@ -134,29 +134,11 @@
         android:id="@+id/edtTxtHN">
 
     </EditText>
-    <ImageView
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_below="@+id/edtTxtHN"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="140dp"
-        android:id="@+id/imgViewPF1"
-        android:src="@drawable/ic_imgee">
-    </ImageView>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/imgViewPF1"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="130dp"
-        android:text="Select Image"
-        android:id="@+id/btnSelectImagePF1">
 
-    </Button>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/btnSelectImagePF1"
+        android:layout_below="@+id/edtTxtHN"
         android:text="SAVE"
         android:layout_marginTop="5dp"
         android:layout_marginLeft="135dp"

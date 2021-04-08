@@ -8,17 +8,16 @@ public class Elements {
     private String inspector;
     private String DOI;
     private String HouseName;
-    private byte[] image1;
 
-    public Elements(int id, byte[] image, String location, String city, String inspector, String DOI, String houseName, byte[] image1) {
+
+    public Elements(int id, byte[] image, String location, String city, String inspector, String DOI, String houseName) {
         this.id = id;
         this.image = image;
         this.location = location;
         this.city = city;
         this.inspector = inspector;
         this.DOI = DOI;
-        this.HouseName = houseName;
-        this.image1 = image1;
+        HouseName = houseName;
     }
 
     public int getId() {
@@ -74,14 +73,6 @@ public class Elements {
     }
 
     public void setHouseName(String houseName) {
-        this.HouseName = houseName;
-    }
-
-    public byte[] getImage1() {
-        return image1;
-    }
-
-    public void setImage1(byte[] image1) {
-        this.image1 = image1;
+        HouseName = houseName;
     }
 }
