@@ -106,10 +106,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private byte[] imageViewTToByte(ImageView imgViewProblemFinding) {
-        Bitmap bitmap = ((BitmapDrawable)imgViewProblemFinding.getDrawable()).getBitmap();
-        ByteArrayOutputStream stream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
-        byte[] byteArray = stream.toByteArray();
+        Bitmap bitmap1 = ((BitmapDrawable)imgViewProblemFinding.getDrawable()).getBitmap();
+        ByteArrayOutputStream stream1 = new ByteArrayOutputStream();
+        bitmap1.compress(Bitmap.CompressFormat.PNG, 100, stream1);
+        byte[] byteArray = stream1.toByteArray();
         return byteArray;
     }
 
@@ -124,14 +124,16 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        if (requestCode == REQUEST_CODE_GALLERY  ){
+        if (requestCode == REQUEST_CODE_GALLERY || requestCode == REQUEST_CODE_GALLERY1  ){
             if (grantResults.length>0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
                 Intent intent = new Intent(Intent.ACTION_PICK);
                 intent.setType("image/*");
                 startActivityForResult(intent, REQUEST_CODE_GALLERY);
+                intent.setType("image1/*");
+                startActivityForResult(intent, REQUEST_CODE_GALLERY1);
 
             }
-            else {
+            else  {
                 Toast.makeText(getApplicationContext(), "You don't have to access file location", Toast.LENGTH_SHORT).show();
             }
             return;
@@ -146,14 +148,16 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        if (requestCode == REQUEST_CODE_GALLERY  && resultCode == RESULT_OK && data!= null){
+        if (requestCode == REQUEST_CODE_GALLERY || requestCode == REQUEST_CODE_GALLERY1 && resultCode == RESULT_OK && data!= null){
             Uri uri = data.getData();
             try {
                 InputStream inputStream = getContentResolver().openInputStream(uri);
+                InputStream inputStream1 = getContentResolver().openInputStream(uri);
 
                 Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
+                Bitmap bitmap1 = BitmapFactory.decodeStream(inputStream1);
                 imgViewFront.setImageBitmap(bitmap);
-                imgViewProblemFinding.setImageBitmap(bitmap);
+                imgViewProblemFinding.setImageBitmap(bitmap1);
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
