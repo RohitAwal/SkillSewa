@@ -109,8 +109,8 @@ public class MainActivity extends AppCompatActivity {
         Bitmap bitmap1 = ((BitmapDrawable)imgViewProblemFinding.getDrawable()).getBitmap();
         ByteArrayOutputStream stream1 = new ByteArrayOutputStream();
         bitmap1.compress(Bitmap.CompressFormat.PNG, 100, stream1);
-        byte[] byteArray = stream1.toByteArray();
-        return byteArray;
+        byte[] byteArray1 = stream1.toByteArray();
+        return byteArray1;
     }
 
     private byte[] imageViewToByte(ImageView imgViewFront) {
@@ -127,10 +127,11 @@ public class MainActivity extends AppCompatActivity {
         if (requestCode == REQUEST_CODE_GALLERY || requestCode == REQUEST_CODE_GALLERY1  ){
             if (grantResults.length>0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
                 Intent intent = new Intent(Intent.ACTION_PICK);
+                Intent intent1 = new Intent(Intent.ACTION_PICK);
                 intent.setType("image/*");
                 startActivityForResult(intent, REQUEST_CODE_GALLERY);
-                intent.setType("image1/*");
-                startActivityForResult(intent, REQUEST_CODE_GALLERY1);
+                intent1.setType("image1/*");
+                startActivityForResult(intent1, REQUEST_CODE_GALLERY1);
 
             }
             else  {
@@ -150,9 +151,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         if (requestCode == REQUEST_CODE_GALLERY || requestCode == REQUEST_CODE_GALLERY1 && resultCode == RESULT_OK && data!= null){
             Uri uri = data.getData();
+            Uri uri1 = data.getData();
             try {
                 InputStream inputStream = getContentResolver().openInputStream(uri);
-                InputStream inputStream1 = getContentResolver().openInputStream(uri);
+                InputStream inputStream1 = getContentResolver().openInputStream(uri1);
 
                 Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
                 Bitmap bitmap1 = BitmapFactory.decodeStream(inputStream1);
