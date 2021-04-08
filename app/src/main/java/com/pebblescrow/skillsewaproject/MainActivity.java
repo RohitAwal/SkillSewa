@@ -26,7 +26,7 @@ import java.io.InputStream;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText edtLocation, edtCity, edtInspector, edtDOI, edtHN;
+    EditText edtLocation, edtInspector, edtDOI, edtHN;
     Button btnSelectImage, btnSave, btnViewList;
     ImageView imgViewFront;
 
@@ -39,8 +39,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         init();
-        sqLiteHelper = new SQLiteHelper(this, "SKILLSEWASTT.sqlite",null,1);
-        sqLiteHelper.queryData("CREATE TABLE IF NOT EXISTS SKILLSEWASTT (ID INTEGER PRIMARY KEY AUTOINCREMENT, image BLOG, location VARCHAR, city VARCHAR, inspector VARCHAR, DateOfInspection VARCHAR, houseName VARCHAR)");
+        sqLiteHelper = new SQLiteHelper(this, "SKILLSEWASTTT.sqlite",null,1);
+        sqLiteHelper.queryData("CREATE TABLE IF NOT EXISTS SKILLSEWASTTT (ID INTEGER PRIMARY KEY AUTOINCREMENT, image BLOG, location VARCHAR, inspector VARCHAR, DateOfInspection VARCHAR, houseName VARCHAR)");
 
         btnSelectImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,7 +64,6 @@ public class MainActivity extends AppCompatActivity {
                     sqLiteHelper.insertData(
                             imageViewToByte(imgViewFront),
                             edtLocation.getText().toString().trim(),
-                            edtCity.getText().toString().trim(),
                             edtInspector.getText().toString().trim(),
                             edtDOI.getText().toString().trim(),
                             edtHN.getText().toString().trim()
@@ -75,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Added successfully", Toast.LENGTH_SHORT).show();
                     imgViewFront.setImageResource(R.mipmap.ic_launcher);
                     edtLocation.setText("");
-                    edtCity.setText("");
+
                     edtInspector.setText("");
                     edtDOI.setText("");
                     edtHN.setText("");
@@ -156,7 +155,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void init(){
         edtLocation = (EditText) findViewById(R.id.edtTxtLocation);
-        edtCity = (EditText) findViewById(R.id.edtTxtCity);
+
         edtInspector= (EditText) findViewById(R.id.edtTxtInspector);
         edtDOI = (EditText) findViewById(R.id.edtTxtDOI);
         edtHN = (EditText) findViewById(R.id.edtTxtHN);

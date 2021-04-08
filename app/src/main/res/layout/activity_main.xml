@@ -59,13 +59,23 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Enter the city"
         android:layout_below="@+id/edtTxtLocation"
-        android:id="@+id/edtTxtCity"
         android:layout_marginTop="5dp"
-        android:layout_marginLeft="130dp">
+        android:layout_marginLeft="135dp"
+        android:hint="Enter the City"
+        android:id="@+id/edtTxtHN">
 
     </EditText>
+<!--    <EditText-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:hint="Enter the city"-->
+<!--        android:layout_below="@+id/edtTxtLocation"-->
+<!--        android:id="@+id/edtTxtCity"-->
+<!--        android:layout_marginTop="5dp"-->
+<!--        android:layout_marginLeft="130dp">-->
+
+<!--    </EditText>-->
 <!--    <TextView-->
 <!--        android:layout_width="wrap_content"-->
 <!--        android:layout_height="wrap_content"-->
@@ -82,7 +92,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="Enter the name of Inspector"
-        android:layout_below="@+id/edtTxtCity"
+        android:layout_below="@+id/edtTxtHN"
         android:id="@+id/edtTxtInspector"
         android:layout_marginTop="5dp"
         android:layout_marginLeft="120dp">
@@ -124,21 +134,12 @@
 
     </EditText>
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/edtTxtDOI"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="135dp"
-        android:hint="Enter the house name"
-        android:id="@+id/edtTxtHN">
 
-    </EditText>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/edtTxtHN"
+        android:layout_below="@+id/edtTxtDOI"
         android:text="SAVE"
         android:layout_marginTop="5dp"
         android:layout_marginLeft="135dp"

@@ -40,7 +40,7 @@ public class ElementsListAdapter extends BaseAdapter {
 
     private class ViewHolder{
         ImageView imageView;
-        TextView textViewLocation, textViewCity, textViewInspector, textViewDOI, textViewHN;
+        TextView textViewLocation, textViewInspector, textViewDOI, textViewHN;
     }
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -52,7 +52,6 @@ public class ElementsListAdapter extends BaseAdapter {
             row = inflater.inflate(layout, null);
             holder.imageView = (ImageView) row.findViewById(R.id.imgViewFront);
             holder.textViewLocation = (TextView) row.findViewById(R.id.txtViewLocation);
-            holder.textViewCity = (TextView) row.findViewById(R.id.txtViewCity);
             holder.textViewInspector = (TextView) row.findViewById(R.id.txtViewInspector);
             holder.textViewDOI = (TextView) row.findViewById(R.id.txtViewDOI);
             holder.textViewHN = (TextView)  row.findViewById(R.id.txtViewHN);
@@ -67,9 +66,7 @@ public class ElementsListAdapter extends BaseAdapter {
         byte[] elementImage = elements.getImage();
         Bitmap bitmap = BitmapFactory.decodeByteArray(elementImage,0,elementImage.length);
         holder.imageView.setImageBitmap(bitmap);
-
         holder.textViewLocation.setText(elements.getLocation());
-        holder.textViewCity.setText(elements.getCity());
         holder.textViewInspector.setText(elements.getInspector());
         holder.textViewDOI.setText(elements.getDOI());
         holder.textViewHN.setText(elements.getHouseName());

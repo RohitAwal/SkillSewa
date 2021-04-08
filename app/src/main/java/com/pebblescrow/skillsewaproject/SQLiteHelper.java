@@ -17,17 +17,16 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         database.execSQL(sql);
 
     }
-    public void insertData(byte[] image, String location,String city, String inspector,String DateOfInspection, String HouseName){
+    public void insertData(byte[] image, String location, String inspector,String DateOfInspection, String HouseName){
         SQLiteDatabase database = getWritableDatabase();
-        String sql= "INSERT INTO SKILLSEWASTT VALUES (NULL, ?, ?, ?, ?, ?, ?)";
+        String sql= "INSERT INTO SKILLSEWASTTT VALUES (NULL, ?, ?, ?, ?, ?)";
         SQLiteStatement statement = database.compileStatement(sql);
         statement.clearBindings();
         statement.bindBlob(1,image);
         statement.bindString(2, location);
-        statement.bindString(3,city);
         statement.bindString(3,inspector);
-        statement.bindString(5, DateOfInspection);
-        statement.bindString(6, HouseName);
+        statement.bindString(4, DateOfInspection);
+        statement.bindString(5, HouseName);
 
 
         statement.executeInsert();
@@ -47,4 +46,6 @@ public class SQLiteHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
     }
+
+
 }
