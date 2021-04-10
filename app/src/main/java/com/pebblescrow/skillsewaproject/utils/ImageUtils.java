@@ -1,4 +1,4 @@
-package com.pebblescrow.skillsewaproject;
+package com.pebblescrow.skillsewaproject.utils;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -10,7 +10,7 @@ import java.io.ByteArrayOutputStream;
 
 public class ImageUtils {
 
-    static String encodeImageToBase64(ImageView imgViewFront) {
+    public static String encodeImageToBase64(ImageView imgViewFront) {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         Bitmap bitmap = ((BitmapDrawable) imgViewFront.getDrawable()).getBitmap();
         bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
@@ -18,7 +18,7 @@ public class ImageUtils {
         return Base64.encodeToString(imageBytes, Base64.DEFAULT);
     }
 
-    static Bitmap decodeFromBase64String(String base64String) {
+    public static Bitmap decodeFromBase64String(String base64String) {
         byte[] imageBytes = Base64.decode(base64String, Base64.DEFAULT);
         return BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length);
     }
