@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
-import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -14,6 +13,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Base64;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -32,21 +32,21 @@ public class MainActivity extends AppCompatActivity {
 
     final int REQUEST_CODE_GALLERY = 999;
 
-
     public static SQLiteHelper sqLiteHelper;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         init();
-        sqLiteHelper = new SQLiteHelper(this, "SKILLSEWASTTT.sqlite",null,1);
-        sqLiteHelper.queryData("CREATE TABLE IF NOT EXISTS SKILLSEWASTTT (ID INTEGER PRIMARY KEY AUTOINCREMENT, image BLOG, location VARCHAR, inspector VARCHAR, DateOfInspection VARCHAR, houseName VARCHAR)");
+        sqLiteHelper = new SQLiteHelper(this, "SKILLSEWASTTT.sqlite", null, 1);
+        sqLiteHelper.queryData("CREATE TABLE IF NOT EXISTS SKILLSEWASTTT (ID INTEGER PRIMARY KEY AUTOINCREMENT, image VARCHAR, location VARCHAR, inspector VARCHAR, DateOfInspection VARCHAR, houseName VARCHAR)");
 
         btnSelectImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ActivityCompat.requestPermissions(
-                      MainActivity.this,
+                        MainActivity.this,
                         new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
                         REQUEST_CODE_GALLERY
                 );
@@ -54,24 +54,22 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-
-
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try {
 
+                    String base64String = ImageUtils.encodeImageToBase64(imgViewFront);
+                    String location = edtLocation.getText().toString().trim();
+                    String inspector = edtInspector.getText().toString().trim();
+                    String dateOfInspection = edtDOI.getText().toString().trim();
+                    String houseName = edtHN.getText().toString().trim();
+
                     sqLiteHelper.insertData(
-                            imageViewToByte(imgViewFront),
-                            edtLocation.getText().toString().trim(),
-                            edtInspector.getText().toString().trim(),
-                            edtDOI.getText().toString().trim(),
-                            edtHN.getText().toString().trim()
-
-
-
+                            base64String, location, inspector, dateOfInspection, houseName
                     );
                     Toast.makeText(getApplicationContext(), "Added successfully", Toast.LENGTH_SHORT).show();
+
                     imgViewFront.setImageResource(R.mipmap.ic_launcher);
                     edtLocation.setText("");
 
@@ -79,9 +77,8 @@ public class MainActivity extends AppCompatActivity {
                     edtDOI.setText("");
                     edtHN.setText("");
 
-                }
-                catch (Exception e){
-                   e.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
 
             }
@@ -96,20 +93,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
     private byte[] imageViewToByte(ImageView imgViewFront) {
-        Bitmap bitmap = ((BitmapDrawable)imgViewFront.getDrawable()).getBitmap();
+        Bitmap bitmap = ((BitmapDrawable) imgViewFront.getDrawable()).getBitmap();
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
         byte[] byteArray = stream.toByteArray();
         return byteArray;
     }
 
-
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        if (requestCode == REQUEST_CODE_GALLERY ){
-            if (grantResults.length>0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+        if (requestCode == REQUEST_CODE_GALLERY) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 Intent intent = new Intent(Intent.ACTION_PICK);
 
                 intent.setType("image/*");
@@ -117,9 +112,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivityForResult(intent, REQUEST_CODE_GALLERY);
 
 
-
-            }
-            else  {
+            } else {
                 Toast.makeText(getApplicationContext(), "You don't have to access file location", Toast.LENGTH_SHORT).show();
             }
             return;
@@ -129,12 +122,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
-
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        if (requestCode == REQUEST_CODE_GALLERY  && resultCode == RESULT_OK && data!= null){
+        if (requestCode == REQUEST_CODE_GALLERY && resultCode == RESULT_OK && data != null) {
             Uri uri = data.getData();
 
             try {
@@ -153,10 +143,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private void init(){
+    private void init() {
         edtLocation = (EditText) findViewById(R.id.edtTxtLocation);
 
-        edtInspector= (EditText) findViewById(R.id.edtTxtInspector);
+        edtInspector = (EditText) findViewById(R.id.edtTxtInspector);
         edtDOI = (EditText) findViewById(R.id.edtTxtDOI);
         edtHN = (EditText) findViewById(R.id.edtTxtHN);
         btnSelectImage = (Button) findViewById(R.id.btnSelectImage);

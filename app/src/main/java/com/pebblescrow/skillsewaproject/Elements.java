@@ -2,15 +2,15 @@ package com.pebblescrow.skillsewaproject;
 
 public class Elements {
     private int id;
-    private byte[] image;
+    private String encodedBase64Image;
     private String location;
     private String inspector;
     private String DOI;
     private String HouseName;
 
-    public Elements(int id, byte[] image, String location, String inspector, String DOI, String houseName) {
+    public Elements(int id, String encodedBase64Image, String location, String inspector, String DOI, String houseName) {
         this.id = id;
-        this.image = image;
+        this.encodedBase64Image = encodedBase64Image;
         this.location = location;
         this.inspector = inspector;
         this.DOI = DOI;
@@ -25,12 +25,12 @@ public class Elements {
         this.id = id;
     }
 
-    public byte[] getImage() {
-        return image;
+    public String getEncodedBase64Image() {
+        return encodedBase64Image;
     }
 
-    public void setImage(byte[] image) {
-        this.image = image;
+    public void setEncodedBase64Image(String encodedBase64Image) {
+        this.encodedBase64Image = encodedBase64Image;
     }
 
     public String getLocation() {

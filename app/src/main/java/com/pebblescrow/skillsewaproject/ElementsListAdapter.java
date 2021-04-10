@@ -63,8 +63,8 @@ public class ElementsListAdapter extends BaseAdapter {
             holder = (ViewHolder) row.getTag();
         }
         Elements elements = elementslist.get(position);
-        byte[] elementImage = elements.getImage();
-        Bitmap bitmap = BitmapFactory.decodeByteArray(elementImage,0,elementImage.length);
+        String encodedBase64Image = elements.getEncodedBase64Image();
+        Bitmap bitmap = ImageUtils.decodeFromBase64String(encodedBase64Image);
         holder.imageView.setImageBitmap(bitmap);
         holder.textViewLocation.setText(elements.getLocation());
         holder.textViewInspector.setText(elements.getInspector());
