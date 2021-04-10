@@ -2,19 +2,21 @@ package com.pebblescrow.skillsewaproject;
 
 public class Elements {
     private int id;
-    private String encodedBase64Image;
+    private String frontImageEncodedInBase64;
+    private String backImageEncodedInBase64;
     private String location;
     private String inspector;
     private String DOI;
-    private String HouseName;
+    private String houseName;
 
-    public Elements(int id, String encodedBase64Image, String location, String inspector, String DOI, String houseName) {
+    public Elements(int id, String frontImageEncodedInBase64, String backImageEncodedInBase64, String location, String inspector, String DOI, String houseName) {
         this.id = id;
-        this.encodedBase64Image = encodedBase64Image;
+        this.frontImageEncodedInBase64 = frontImageEncodedInBase64;
+        this.backImageEncodedInBase64 = backImageEncodedInBase64;
         this.location = location;
         this.inspector = inspector;
         this.DOI = DOI;
-        HouseName = houseName;
+        this.houseName = houseName;
     }
 
     public int getId() {
@@ -25,12 +27,12 @@ public class Elements {
         this.id = id;
     }
 
-    public String getEncodedBase64Image() {
-        return encodedBase64Image;
+    public String getFrontImageEncodedInBase64() {
+        return frontImageEncodedInBase64;
     }
 
-    public void setEncodedBase64Image(String encodedBase64Image) {
-        this.encodedBase64Image = encodedBase64Image;
+    public void setFrontImageEncodedInBase64(String frontImageEncodedInBase64) {
+        this.frontImageEncodedInBase64 = frontImageEncodedInBase64;
     }
 
     public String getLocation() {
@@ -58,10 +60,18 @@ public class Elements {
     }
 
     public String getHouseName() {
-        return HouseName;
+        return houseName;
     }
 
     public void setHouseName(String houseName) {
-        HouseName = houseName;
+        this.houseName = houseName;
+    }
+
+    public String getBackImageEncodedInBase64() {
+        return backImageEncodedInBase64;
+    }
+
+    public void setBackImageEncodedInBase64(String backImageEncodedInBase64) {
+        this.backImageEncodedInBase64 = backImageEncodedInBase64;
     }
 }

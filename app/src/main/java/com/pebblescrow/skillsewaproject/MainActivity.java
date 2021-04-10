@@ -28,10 +28,11 @@ import java.io.InputStream;
 public class MainActivity extends AppCompatActivity {
 
     EditText edtLocation, edtInspector, edtDOI, edtHN;
-    Button btnSelectImage, btnSave, btnViewList;
-    ImageView imgViewFront;
+    Button btnSelectFrontImage, btnSelectBackImage, btnSave, btnViewList;
+    ImageView imgViewFront, imgViewBack;
 
-    final int REQUEST_CODE_GALLERY = 999;
+    final int SELECT_FRONT_IMAGE_FROM_GALLERY_REQUEST_CODE = 999;
+    final int SELECT_BACK_IMAGE_FROM_GALLERY_REQUEST_CODE = 1000;
 
     public static SQLiteHelper sqLiteHelper;
 
@@ -41,16 +42,29 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         init();
         sqLiteHelper = new SQLiteHelper(this, "SKILLSEWASTTT.sqlite", null, 1);
-        sqLiteHelper.queryData("CREATE TABLE IF NOT EXISTS SKILLSEWASTTT (ID INTEGER PRIMARY KEY AUTOINCREMENT, image VARCHAR, location VARCHAR, inspector VARCHAR, DateOfInspection VARCHAR, houseName VARCHAR)");
+        sqLiteHelper.queryData("CREATE TABLE IF NOT EXISTS SKILLSEWASTTT (ID INTEGER PRIMARY KEY AUTOINCREMENT, frontImage VARCHAR, backImage VARCHAR,  location VARCHAR, inspector VARCHAR, DateOfInspection VARCHAR, houseName VARCHAR)");
 
-        btnSelectImage.setOnClickListener(new View.OnClickListener() {
+        btnSelectFrontImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ActivityCompat.requestPermissions(
                         MainActivity.this,
                         new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
-                        REQUEST_CODE_GALLERY
+                        SELECT_FRONT_IMAGE_FROM_GALLERY_REQUEST_CODE
                 );
+            }
+        });
+
+        btnSelectBackImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                ActivityCompat.requestPermissions(
+                        MainActivity.this,
+                        new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+                        SELECT_BACK_IMAGE_FROM_GALLERY_REQUEST_CODE
+                );
+
             }
         });
 
@@ -60,18 +74,25 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 try {
 
-                    String base64String = ImageUtils.encodeImageToBase64(imgViewFront);
+                    String encodedFrontImage = ImageUtils.encodeImageToBase64(imgViewFront);
+                    String encodedBackImage = ImageUtils.encodeImageToBase64(imgViewBack);
                     String location = edtLocation.getText().toString().trim();
                     String inspector = edtInspector.getText().toString().trim();
                     String dateOfInspection = edtDOI.getText().toString().trim();
                     String houseName = edtHN.getText().toString().trim();
 
                     sqLiteHelper.insertData(
-                            base64String, location, inspector, dateOfInspection, houseName
+                            encodedFrontImage,
+                            encodedBackImage,
+                            location,
+                            inspector,
+                            dateOfInspection,
+                            houseName
                     );
                     Toast.makeText(getApplicationContext(), "Added successfully", Toast.LENGTH_SHORT).show();
 
                     imgViewFront.setImageResource(R.mipmap.ic_launcher);
+                    imgViewBack.setImageResource(R.mipmap.ic_launcher);
                     edtLocation.setText("");
 
                     edtInspector.setText("");
@@ -104,13 +125,26 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        if (requestCode == REQUEST_CODE_GALLERY) {
+        if (requestCode == SELECT_FRONT_IMAGE_FROM_GALLERY_REQUEST_CODE) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 Intent intent = new Intent(Intent.ACTION_PICK);
 
                 intent.setType("image/*");
 
-                startActivityForResult(intent, REQUEST_CODE_GALLERY);
+                startActivityForResult(intent, SELECT_FRONT_IMAGE_FROM_GALLERY_REQUEST_CODE);
+
+
+            } else {
+                Toast.makeText(getApplicationContext(), "You don't have to access file location", Toast.LENGTH_SHORT).show();
+            }
+            return;
+        } else if (requestCode == SELECT_BACK_IMAGE_FROM_GALLERY_REQUEST_CODE) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                Intent intent = new Intent(Intent.ACTION_PICK);
+
+                intent.setType("image/*");
+
+                startActivityForResult(intent, SELECT_BACK_IMAGE_FROM_GALLERY_REQUEST_CODE);
 
 
             } else {
@@ -125,7 +159,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        if (requestCode == REQUEST_CODE_GALLERY && resultCode == RESULT_OK && data != null) {
+        if (requestCode == SELECT_FRONT_IMAGE_FROM_GALLERY_REQUEST_CODE && resultCode == RESULT_OK && data != null) {
             Uri uri = data.getData();
 
             try {
@@ -135,6 +169,18 @@ public class MainActivity extends AppCompatActivity {
                 Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
 
                 imgViewFront.setImageBitmap(bitmap);
+
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        } else if (requestCode == SELECT_BACK_IMAGE_FROM_GALLERY_REQUEST_CODE && resultCode == RESULT_OK && data != null) {
+            Uri uri = data.getData();
+
+            try {
+                InputStream inputStream = getContentResolver().openInputStream(uri);
+                Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
+
+                imgViewBack.setImageBitmap(bitmap);
 
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
@@ -150,10 +196,12 @@ public class MainActivity extends AppCompatActivity {
         edtInspector = (EditText) findViewById(R.id.edtTxtInspector);
         edtDOI = (EditText) findViewById(R.id.edtTxtDOI);
         edtHN = (EditText) findViewById(R.id.edtTxtHN);
-        btnSelectImage = (Button) findViewById(R.id.btnSelectImage);
+        btnSelectFrontImage = (Button) findViewById(R.id.btnSelectFrontImage);
+        btnSelectBackImage = (Button) findViewById(R.id.btnSelectBackImage);
         btnSave = (Button) findViewById(R.id.btnSave);
         btnViewList = (Button) findViewById(R.id.btnViewList);
         imgViewFront = (ImageView) findViewById(R.id.imgViewFrontPhoto);
+        imgViewBack = (ImageView) findViewById(R.id.imgViewBackPhoto);
 
     }
 }

@@ -1,21 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/activity_main"
-    android:paddingBottom="@dimen/cardview_default_elevation"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:paddingLeft="@dimen/cardview_default_elevation"
-    android:paddingRight="@dimen/cardview_default_elevation"
     android:paddingTop="@dimen/cardview_default_elevation"
-    >
+    android:paddingRight="@dimen/cardview_default_elevation"
+    android:paddingBottom="@dimen/cardview_default_elevation">
+
     <GridView
+        android:id="@+id/gridViewReport"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/gridViewReport"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:columnWidth="120dp"
         android:gravity="center"
-        android:numColumns="auto_fit"/>
+        android:numColumns="1" />
 
 </RelativeLayout>

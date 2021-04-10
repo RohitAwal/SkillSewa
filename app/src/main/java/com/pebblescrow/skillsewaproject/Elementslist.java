@@ -8,7 +8,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Elementslist extends AppCompatActivity {
 
@@ -31,13 +30,14 @@ public class Elementslist extends AppCompatActivity {
         list.clear();
         while (cursor.moveToNext()) {
             int id = cursor.getInt(0);
-            String base64EncodedString = cursor.getString(1);
-            String location = cursor.getString(2);
-            String inspector = cursor.getString(3);
-            String DOI = cursor.getString(4);
-            String HouseName = cursor.getString(5);
+            String encodedFrontImage = cursor.getString(1);
+            String encodedBackImage = cursor.getString(2);
+            String location = cursor.getString(3);
+            String inspector = cursor.getString(4);
+            String DOI = cursor.getString(5);
+            String HouseName = cursor.getString(6);
 
-            list.add(new Elements(id, base64EncodedString, location, inspector, DOI, HouseName));
+            list.add(new Elements(id, encodedFrontImage, encodedBackImage, location, inspector, DOI, HouseName));
 
         }
         adapter.notifyDataSetChanged();

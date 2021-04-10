@@ -39,8 +39,8 @@ public class ElementsListAdapter extends BaseAdapter {
         return position;
     }
 
-    private class ViewHolder{
-        ImageView imageView;
+    private class ViewHolder {
+        ImageView imgViewFront, imgViewBack;
         TextView textViewLocation, textViewInspector, textViewDOI, textViewHN;
     }
     @Override
@@ -48,30 +48,32 @@ public class ElementsListAdapter extends BaseAdapter {
         View row = convertView;
         ViewHolder holder = new ViewHolder();
 
-        if (row == null){
+        if (row == null) {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             row = inflater.inflate(layout, null);
-            holder.imageView = (ImageView) row.findViewById(R.id.imgViewFront);
+            holder.imgViewFront = (ImageView) row.findViewById(R.id.imgViewFront);
+            holder.imgViewBack = (ImageView) row.findViewById(R.id.imgViewBack);
             holder.textViewLocation = (TextView) row.findViewById(R.id.txtViewLocation);
             holder.textViewInspector = (TextView) row.findViewById(R.id.txtViewInspector);
             holder.textViewDOI = (TextView) row.findViewById(R.id.txtViewDOI);
-            holder.textViewHN = (TextView)  row.findViewById(R.id.txtViewHN);
+            holder.textViewHN = (TextView) row.findViewById(R.id.txtViewHN);
 
 
             row.setTag(holder);
-        }
-        else {
+        } else {
             holder = (ViewHolder) row.getTag();
         }
         Elements elements = elementslist.get(position);
-        String encodedBase64Image = elements.getEncodedBase64Image();
-        Bitmap bitmap = ImageUtils.decodeFromBase64String(encodedBase64Image);
-        holder.imageView.setImageBitmap(bitmap);
+        String encodedFrontImage = elements.getFrontImageEncodedInBase64();
+        Bitmap frontBitmap = ImageUtils.decodeFromBase64String(encodedFrontImage);
+        String encodedBackImage = elements.getBackImageEncodedInBase64();
+        holder.imgViewFront.setImageBitmap(frontBitmap);
+        Bitmap backBitmap = ImageUtils.decodeFromBase64String(encodedBackImage);
+        holder.imgViewBack.setImageBitmap(backBitmap);
         holder.textViewLocation.setText(elements.getLocation());
         holder.textViewInspector.setText(elements.getInspector());
         holder.textViewDOI.setText(elements.getDOI());
         holder.textViewHN.setText(elements.getHouseName());
-
 
 
         return row;

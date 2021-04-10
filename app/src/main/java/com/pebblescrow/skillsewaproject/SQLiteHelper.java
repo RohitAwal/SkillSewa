@@ -20,16 +20,17 @@ public class SQLiteHelper extends SQLiteOpenHelper {
 
     }
 
-    public void insertData(String base64EncodedString, String location, String inspector, String DateOfInspection, String HouseName) {
+    public void insertData(String encodedFrontImage, String encodedBackImage, String location, String inspector, String DateOfInspection, String HouseName) {
         SQLiteDatabase database = getWritableDatabase();
-        String sql = "INSERT INTO SKILLSEWASTTT VALUES (NULL, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO SKILLSEWASTTT VALUES (NULL, ?, ?, ?, ?, ?, ?)";
         SQLiteStatement statement = database.compileStatement(sql);
         statement.clearBindings();
-        statement.bindString(1, base64EncodedString);
-        statement.bindString(2, location);
-        statement.bindString(3, inspector);
-        statement.bindString(4, DateOfInspection);
-        statement.bindString(5, HouseName);
+        statement.bindString(1, encodedFrontImage);
+        statement.bindString(2, encodedBackImage);
+        statement.bindString(3, location);
+        statement.bindString(4, inspector);
+        statement.bindString(5, DateOfInspection);
+        statement.bindString(6, HouseName);
 
         statement.executeInsert();
     }
