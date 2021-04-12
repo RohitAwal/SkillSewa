@@ -1,89 +1,325 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginTop="8dp"
     android:orientation="vertical"
-    android:paddingHorizontal="8dp">
+    android:paddingHorizontal="8dp"
+    android:fillViewport="true">
 
-    <TextView
-        android:id="@+id/txtViewLocation"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:text="Location Name"
-        android:textAlignment="viewStart"
-        android:textColor="#0e11d1"
-        android:textSize="17sp" />
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layout_marginLeft="10dp">
 
 
-    <TextView
-        android:id="@+id/txtViewInspector"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/txtViewLocation"
-        android:layout_alignStart="@id/txtViewLocation"
-        android:layout_alignEnd="@id/txtViewLocation"
-        android:text="Inspector Name"
-        android:textAlignment="viewStart"
+        <ImageView
+            android:id="@+id/imgViewFront"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:layout_marginTop="4dp"
+            app:srcCompat="@mipmap/ic_launcher" />
 
-        android:textColor="#0e11d1"
-        android:textSize="17sp" />
-
-    <TextView
-        android:id="@+id/txtViewDOI"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/txtViewInspector"
-        android:layout_alignStart="@id/txtViewLocation"
-        android:layout_alignEnd="@id/txtViewLocation"
-        android:text="Date of Inspection"
-        android:textAlignment="viewStart"
-        android:textColor="#0e11d1"
-        android:textSize="17sp" />
-
-    <TextView
-        android:id="@+id/txtViewHN"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/txtViewDOI"
-        android:layout_alignStart="@id/txtViewLocation"
-        android:layout_alignEnd="@id/txtViewLocation"
-        android:text="House Name"
-        android:textAlignment="viewStart"
-        android:textColor="#0e11d1"
-        android:textSize="17sp" />
-
-    <ImageView
-        android:id="@+id/imgViewFront"
-        android:layout_width="125dp"
-        android:layout_height="125dp"
-        android:layout_below="@id/txtViewHN"
-        android:layout_marginTop="4dp"
-        app:srcCompat="@mipmap/ic_launcher" />
+        <TextView
+            android:id="@+id/txtViewLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Location Name"
+            android:textAlignment="viewStart"
+            android:textColor="#0e11d1"
+            android:textSize="17sp" />
 
 
-    <ImageView
-        android:id="@+id/imgViewBack"
-        android:layout_width="125dp"
-        android:layout_height="125dp"
-        android:layout_below="@id/txtViewHN"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="4dp"
-        android:layout_toEndOf="@id/imgViewFront"
-        app:srcCompat="@mipmap/ic_launcher" />
+        <TextView
+            android:id="@+id/txtViewInspector"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Inspector Name"
+            android:textAlignment="viewStart"
+            android:textColor="#0e11d1"
+            android:textSize="17sp" />
 
-    <ImageView
-        android:id="@+id/imgViewPDD"
-        android:layout_width="125dp"
-        android:layout_height="125dp"
-        android:layout_below="@id/imgViewBack"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="4dp"
+        <TextView
+            android:id="@+id/txtViewDOI"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date of Inspection"
+            android:textAlignment="viewStart"
+            android:textColor="#0e11d1"
+            android:textSize="17sp" />
 
-        app:srcCompat="@mipmap/ic_launcher" />
+        <TextView
+            android:id="@+id/txtViewHN"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="House Name"
+            android:textAlignment="viewStart"
+            android:textColor="#0e11d1"
+            android:textSize="17sp" />
 
-</RelativeLayout>
+        //PF1
+
+        <ImageView
+            android:id="@+id/imgViewVPF1A"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:layout_marginTop="4dp"
+            app:srcCompat="@mipmap/ic_launcher" />
+
+        <ImageView
+            android:id="@+id/imgViewVPF1B"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:layout_marginTop="4dp"
+            app:srcCompat="@mipmap/ic_launcher" />
+
+        <ImageView
+            android:id="@+id/imgViewVPF1C"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:layout_marginTop="4dp"
+            app:srcCompat="@mipmap/ic_launcher" />
+
+        <TextView
+            android:id="@+id/txtViewVPFOD"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Location Name"
+            android:textAlignment="viewStart"
+            android:textColor="#0e11d1"
+            android:textSize="17sp" />
+
+
+        <TextView
+            android:id="@+id/txtViewVPFOF"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Inspector Name"
+            android:textAlignment="viewStart"
+            android:textColor="#0e11d1"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/txtViewVPFOR"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date of Inspection"
+            android:textAlignment="viewStart"
+            android:textColor="#0e11d1"
+            android:textSize="17sp" />
+
+        //PF2
+
+        <ImageView
+            android:id="@+id/imgViewVPF2A"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:layout_marginTop="4dp"
+            app:srcCompat="@mipmap/ic_launcher" />
+
+
+        <TextView
+            android:id="@+id/txtViewVPFTD"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Location Name"
+            android:textAlignment="viewStart"
+            android:textColor="#0e11d1"
+            android:textSize="17sp" />
+
+
+        <TextView
+            android:id="@+id/txtViewVPFTF"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Inspector Name"
+            android:textAlignment="viewStart"
+            android:textColor="#0e11d1"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/txtViewVPFTR"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date of Inspection"
+            android:textAlignment="viewStart"
+            android:textColor="#0e11d1"
+            android:textSize="17sp" />
+
+
+        //PF3
+
+        <ImageView
+            android:id="@+id/imgViewVPF3A"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:layout_marginTop="4dp"
+            app:srcCompat="@mipmap/ic_launcher" />
+
+        <ImageView
+            android:id="@+id/imgViewVPF3B"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:layout_marginTop="4dp"
+            app:srcCompat="@mipmap/ic_launcher" />
+
+        <ImageView
+            android:id="@+id/imgViewVPF3C"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:layout_marginTop="4dp"
+            app:srcCompat="@mipmap/ic_launcher" />
+
+        <ImageView
+            android:id="@+id/imgViewVPF3D"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:layout_marginTop="4dp"
+            app:srcCompat="@mipmap/ic_launcher" />
+
+        <TextView
+            android:id="@+id/txtViewVPFTHD"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Location Name"
+            android:textAlignment="viewStart"
+            android:textColor="#0e11d1"
+            android:textSize="17sp" />
+
+
+        <TextView
+            android:id="@+id/txtViewVPFTHF"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Inspector Name"
+            android:textAlignment="viewStart"
+            android:textColor="#0e11d1"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/txtViewVPFTHR"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date of Inspection"
+            android:textAlignment="viewStart"
+            android:textColor="#0e11d1"
+            android:textSize="17sp" />
+
+        //PF4
+
+        <ImageView
+            android:id="@+id/imgViewVPF4A"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:layout_marginTop="4dp"
+            app:srcCompat="@mipmap/ic_launcher" />
+
+        <ImageView
+            android:id="@+id/imgViewVPF4B"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:layout_marginTop="4dp"
+            app:srcCompat="@mipmap/ic_launcher" />
+
+        <ImageView
+            android:id="@+id/imgViewVPF4C"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:layout_marginTop="4dp"
+            app:srcCompat="@mipmap/ic_launcher" />
+
+        <TextView
+            android:id="@+id/txtViewVPFFD"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Location Name"
+            android:textAlignment="viewStart"
+            android:textColor="#0e11d1"
+            android:textSize="17sp" />
+
+
+        <TextView
+            android:id="@+id/txtViewVPFFF"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Inspector Name"
+            android:textAlignment="viewStart"
+            android:textColor="#0e11d1"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/txtViewVPFFR"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date of Inspection"
+            android:textAlignment="viewStart"
+            android:textColor="#0e11d1"
+            android:textSize="17sp" />
+
+
+        //PF5
+
+        <ImageView
+            android:id="@+id/imgViewVPF5A"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:layout_marginTop="4dp"
+            app:srcCompat="@mipmap/ic_launcher" />
+
+
+        <TextView
+            android:id="@+id/txtViewVPFFID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Location Name"
+            android:textAlignment="viewStart"
+            android:textColor="#0e11d1"
+            android:textSize="17sp" />
+
+
+        <TextView
+            android:id="@+id/txtViewVPFFIF"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Inspector Name"
+            android:textAlignment="viewStart"
+            android:textColor="#0e11d1"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/txtViewVPFFIR"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date of Inspection"
+            android:textAlignment="viewStart"
+            android:textColor="#0e11d1"
+            android:textSize="17sp" />
+
+
+        <ImageView
+            android:id="@+id/imgViewBack"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:layout_marginTop="4dp"
+            app:srcCompat="@mipmap/ic_launcher" />
+
+        <ImageView
+            android:id="@+id/imgViewPDD"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:layout_marginTop="4dp"
+            app:srcCompat="@mipmap/ic_launcher" />
+
+
+    </LinearLayout>
+
+</ScrollView>
+
+
+
+
+
+
