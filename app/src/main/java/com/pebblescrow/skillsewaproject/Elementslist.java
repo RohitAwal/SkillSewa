@@ -26,7 +26,7 @@ public class Elementslist extends AppCompatActivity {
         gridView.setAdapter(adapter);
 
         // get all data from sqlite
-        Cursor cursor = MainActivity.sqLiteHelper.getData("SELECT * FROM SKILLSEWASTTT");
+        Cursor cursor = MainActivity.sqLiteHelper.getData("SELECT * FROM SKILLSEWASTTTT");
         list.clear();
         while (cursor.moveToNext()) {
             int id = cursor.getInt(0);

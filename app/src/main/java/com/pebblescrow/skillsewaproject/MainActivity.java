@@ -35,6 +35,11 @@ public class MainActivity extends AppCompatActivity {
     final int SELECT_BACK_IMAGE_FROM_GALLERY_REQUEST_CODE = 1000;
     final int SELECT_PD_IMAGE_FROM_GALLERY_REQUEST_CODE = 1001;
 
+    // btnPF1A, btnPF1B, btnPF1C,
+    final int SELECT_btnPF1A_IMAGE_FROM_GALLERY_REQUEST_CODE = 1002;
+    final int SELECT_btnPF1B_IMAGE_FROM_GALLERY_REQUEST_CODE = 1003;
+    final int SELECT_btnPF1C_IMAGE_FROM_GALLERY_REQUEST_CODE = 1004;
+
     public static SQLiteHelper sqLiteHelper;
 
     @Override
@@ -42,8 +47,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         init();
-        sqLiteHelper = new SQLiteHelper(this, "SKILLSEWASTTT.sqlite", null, 1);
-        sqLiteHelper.queryData("CREATE TABLE IF NOT EXISTS SKILLSEWASTTT (ID INTEGER PRIMARY KEY AUTOINCREMENT, frontImage VARCHAR, backImage VARCHAR, PDImage VARCHAR,  location VARCHAR, inspector VARCHAR, DateOfInspection VARCHAR, houseName VARCHAR, )");
+        sqLiteHelper = new SQLiteHelper(this, "SKILLSEWASTTTT.sqlite", null, 1);
+        sqLiteHelper.queryData("CREATE TABLE IF NOT EXISTS SKILLSEWASTTTT (ID INTEGER PRIMARY KEY AUTOINCREMENT, frontImage VARCHAR, backImage VARCHAR, PDImage VARCHAR,  location VARCHAR, inspector VARCHAR, DateOfInspection VARCHAR, houseName VARCHAR, PF1AImage VARCHAR, PF1BImage VARCHAR, PF1CImage VARCHAR, PFOD VARCHAR, PFOF VARCHAR, VARCHAR PFOR)");
 
         btnSelectFrontImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,6 +81,43 @@ public class MainActivity extends AppCompatActivity {
                         MainActivity.this,
                         new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
                         SELECT_PD_IMAGE_FROM_GALLERY_REQUEST_CODE
+                );
+
+            }
+        });
+
+
+        btnPF1A.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ActivityCompat.requestPermissions(
+                        MainActivity.this,
+                        new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+                        SELECT_btnPF1A_IMAGE_FROM_GALLERY_REQUEST_CODE
+                );
+            }
+        });
+
+        btnPF1B.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                ActivityCompat.requestPermissions(
+                        MainActivity.this,
+                        new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+                        SELECT_btnPF1B_IMAGE_FROM_GALLERY_REQUEST_CODE
+                );
+
+            }
+        });
+        btnPF1C.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                ActivityCompat.requestPermissions(
+                        MainActivity.this,
+                        new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+                        SELECT_btnPF1C_IMAGE_FROM_GALLERY_REQUEST_CODE
                 );
 
             }
@@ -198,6 +240,45 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "You don't have to access file location", Toast.LENGTH_SHORT).show();
             }
             return;
+        } else if (requestCode == SELECT_btnPF1A_IMAGE_FROM_GALLERY_REQUEST_CODE) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                Intent intent = new Intent(Intent.ACTION_PICK);
+
+                intent.setType("image/*");
+
+                startActivityForResult(intent, SELECT_btnPF1A_IMAGE_FROM_GALLERY_REQUEST_CODE);
+
+
+            } else {
+                Toast.makeText(getApplicationContext(), "You don't have to access file location", Toast.LENGTH_SHORT).show();
+            }
+            return;
+        } else if (requestCode == SELECT_btnPF1B_IMAGE_FROM_GALLERY_REQUEST_CODE) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                Intent intent = new Intent(Intent.ACTION_PICK);
+
+                intent.setType("image/*");
+
+                startActivityForResult(intent, SELECT_btnPF1B_IMAGE_FROM_GALLERY_REQUEST_CODE);
+
+
+            } else {
+                Toast.makeText(getApplicationContext(), "You don't have to access file location", Toast.LENGTH_SHORT).show();
+            }
+            return;
+        } else if (requestCode == SELECT_btnPF1C_IMAGE_FROM_GALLERY_REQUEST_CODE) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                Intent intent = new Intent(Intent.ACTION_PICK);
+
+                intent.setType("image/*");
+
+                startActivityForResult(intent, SELECT_btnPF1C_IMAGE_FROM_GALLERY_REQUEST_CODE);
+
+
+            } else {
+                Toast.makeText(getApplicationContext(), "You don't have to access file location", Toast.LENGTH_SHORT).show();
+            }
+            return;
         }
 
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -240,6 +321,42 @@ public class MainActivity extends AppCompatActivity {
                 Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
 
                 imgViewPD1.setImageBitmap(bitmap);
+
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        } else if (requestCode == SELECT_btnPF1A_IMAGE_FROM_GALLERY_REQUEST_CODE && resultCode == RESULT_OK && data != null) {
+            Uri uri = data.getData();
+
+            try {
+                InputStream inputStream = getContentResolver().openInputStream(uri);
+                Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
+
+                imgViewPF1A.setImageBitmap(bitmap);
+
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        } else if (requestCode == SELECT_btnPF1B_IMAGE_FROM_GALLERY_REQUEST_CODE && resultCode == RESULT_OK && data != null) {
+            Uri uri = data.getData();
+
+            try {
+                InputStream inputStream = getContentResolver().openInputStream(uri);
+                Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
+
+                imgViewPF1B.setImageBitmap(bitmap);
+
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        } else if (requestCode == SELECT_btnPF1C_IMAGE_FROM_GALLERY_REQUEST_CODE && resultCode == RESULT_OK && data != null) {
+            Uri uri = data.getData();
+
+            try {
+                InputStream inputStream = getContentResolver().openInputStream(uri);
+                Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
+
+                imgViewPF1C.setImageBitmap(bitmap);
 
             } catch (FileNotFoundException e) {
                 e.printStackTrace();

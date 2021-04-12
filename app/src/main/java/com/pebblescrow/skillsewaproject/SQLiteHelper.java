@@ -22,7 +22,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
 
     public void insertData(String encodedFrontImage, String encodedBackImage, String encodedPDImage, String location, String inspector, String DateOfInspection, String HouseName, String encodedPF1A, String encodedPF1B, String encodedPF1C, String PFOD, String PFOF, String PFOR) {
         SQLiteDatabase database = getWritableDatabase();
-        String sql = "INSERT INTO SKILLSEWASTTT VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )";
+        String sql = "INSERT INTO SKILLSEWASTTTT VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )";
         SQLiteStatement statement = database.compileStatement(sql);
         statement.clearBindings();
         statement.bindString(1, encodedFrontImage);
