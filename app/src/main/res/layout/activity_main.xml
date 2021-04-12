@@ -783,41 +783,41 @@
 
         </Button>
 
-        <ImageView
-            android:id="@+id/imgViewPF5B"
-            android:layout_width="100dp"
-            android:layout_height="75dp"
-            android:layout_marginTop="5dp"
-            android:scaleType="fitCenter"
-            android:src="@drawable/ic_imgee" />
+        <!--        <ImageView-->
+        <!--            android:id="@+id/imgViewPF5B"-->
+        <!--            android:layout_width="100dp"-->
+        <!--            android:layout_height="75dp"-->
+        <!--            android:layout_marginTop="5dp"-->
+        <!--            android:scaleType="fitCenter"-->
+        <!--            android:src="@drawable/ic_imgee" />-->
 
-        <Button
-            android:id="@+id/btnPF5B"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Select Image"
-            android:textAllCaps="false">
+        <!--        <Button-->
+        <!--            android:id="@+id/btnPF5B"-->
+        <!--            style="@style/Widget.MaterialComponents.Button.TextButton"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:text="Select Image"-->
+        <!--            android:textAllCaps="false">-->
 
-        </Button>
+        <!--        </Button>-->
 
-        <ImageView
-            android:id="@+id/imgViewPF5C"
-            android:layout_width="100dp"
-            android:layout_height="75dp"
-            android:layout_marginTop="5dp"
-            android:scaleType="fitCenter"
-            android:src="@drawable/ic_imgee" />
+        <!--        <ImageView-->
+        <!--            android:id="@+id/imgViewPF5C"-->
+        <!--            android:layout_width="100dp"-->
+        <!--            android:layout_height="75dp"-->
+        <!--            android:layout_marginTop="5dp"-->
+        <!--            android:scaleType="fitCenter"-->
+        <!--            android:src="@drawable/ic_imgee" />-->
 
-        <Button
-            android:id="@+id/btnPF5C"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Select Image"
-            android:textAllCaps="false">
+        <!--        <Button-->
+        <!--            android:id="@+id/btnPF5C"-->
+        <!--            style="@style/Widget.MaterialComponents.Button.TextButton"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:text="Select Image"-->
+        <!--            android:textAllCaps="false">-->
 
-        </Button>
+        <!--        </Button>-->
 
         <TextView
             android:layout_width="match_parent"
