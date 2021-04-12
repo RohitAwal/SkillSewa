@@ -4,15 +4,17 @@ public class Elements {
     private int id;
     private String frontImageEncodedInBase64;
     private String backImageEncodedInBase64;
+    private String PDImageEncodedInBase64;
     private String location;
     private String inspector;
     private String DOI;
     private String houseName;
 
-    public Elements(int id, String frontImageEncodedInBase64, String backImageEncodedInBase64, String location, String inspector, String DOI, String houseName) {
+    public Elements(int id, String frontImageEncodedInBase64, String backImageEncodedInBase64, String PDImageEncodedInBase64, String location, String inspector, String DOI, String houseName) {
         this.id = id;
         this.frontImageEncodedInBase64 = frontImageEncodedInBase64;
         this.backImageEncodedInBase64 = backImageEncodedInBase64;
+        this.PDImageEncodedInBase64 = PDImageEncodedInBase64;
         this.location = location;
         this.inspector = inspector;
         this.DOI = DOI;
@@ -33,6 +35,22 @@ public class Elements {
 
     public void setFrontImageEncodedInBase64(String frontImageEncodedInBase64) {
         this.frontImageEncodedInBase64 = frontImageEncodedInBase64;
+    }
+
+    public String getBackImageEncodedInBase64() {
+        return backImageEncodedInBase64;
+    }
+
+    public void setBackImageEncodedInBase64(String backImageEncodedInBase64) {
+        this.backImageEncodedInBase64 = backImageEncodedInBase64;
+    }
+
+    public String getPDImageEncodedInBase64() {
+        return PDImageEncodedInBase64;
+    }
+
+    public void setPDImageEncodedInBase64(String PDImageEncodedInBase64) {
+        this.PDImageEncodedInBase64 = PDImageEncodedInBase64;
     }
 
     public String getLocation() {
@@ -65,13 +83,5 @@ public class Elements {
 
     public void setHouseName(String houseName) {
         this.houseName = houseName;
-    }
-
-    public String getBackImageEncodedInBase64() {
-        return backImageEncodedInBase64;
-    }
-
-    public void setBackImageEncodedInBase64(String backImageEncodedInBase64) {
-        this.backImageEncodedInBase64 = backImageEncodedInBase64;
     }
 }

@@ -10,7 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="16dp"
+        android:layout_marginLeft="10dp">
 
         <!--    <ImageView-->
         <!--        android:layout_width="wrap_content"-->
@@ -34,8 +35,8 @@
 
         <ImageView
             android:id="@+id/imgViewFrontPhoto"
-            android:layout_width="150dp"
-            android:layout_height="125dp"
+            android:layout_width="100dp"
+            android:layout_height="75dp"
             android:layout_marginTop="5dp"
             android:scaleType="fitCenter"
             android:src="@drawable/ic_imgee" />
@@ -76,19 +77,20 @@
         <!--        android:layout_marginTop="5dp"-->
         <!--        android:layout_marginLeft="130dp">-->
 
-        <!--    </EditText>-->
-        <!--    <TextView-->
-        <!--        android:layout_width="wrap_content"-->
-        <!--        android:layout_height="wrap_content"-->
-        <!--        android:layout_below="@+id/edtTxtCity"-->
-        <!--        android:layout_marginTop="5dp"-->
-        <!--        android:text="Home Inspector"-->
-        <!--        android:textStyle="bold"-->
-        <!--        android:textSize="15dp"-->
-        <!--        android:id="@+id/txtViewHomeInspector"-->
-        <!--        android:layout_marginLeft="130dp">-->
+        <!--            </EditText>-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
 
-        <!--    </TextView>-->
+            android:layout_marginTop="5dp"
+            android:text="Home Inspector"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:id="@+id/txtViewHomeInspector"
+            android:layout_marginLeft="130dp">
+
+        </TextView>
+
         <EditText
             android:id="@+id/edtTxtInspector"
             android:layout_width="match_parent"
@@ -98,30 +100,31 @@
 
         </EditText>
 
-        <!--    <TextView-->
-        <!--        android:layout_width="wrap_content"-->
-        <!--        android:layout_height="wrap_content"-->
-        <!--        android:layout_below="@+id/edtTxtInspector"-->
-        <!--        android:layout_marginTop="5dp"-->
-        <!--        android:text="Prepared By:"-->
-        <!--        android:textStyle="bold"-->
-        <!--        android:textSize="15dp"-->
-        <!--        android:id="@+id/txtViewPrepared"-->
-        <!--        android:layout_marginLeft="135dp">-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edtTxtInspector"
+            android:layout_marginTop="5dp"
+            android:text="Prepared By:"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:id="@+id/txtViewPrepared"
+            android:layout_marginLeft="135dp">
 
-        <!--    </TextView>-->
-        <!--    <TextView-->
-        <!--        android:layout_width="wrap_content"-->
-        <!--        android:layout_height="wrap_content"-->
-        <!--        android:layout_below="@+id/edtTxtInspector"-->
-        <!--        android:layout_marginTop="5dp"-->
-        <!--        android:text="Skill Sewa"-->
-        <!--        android:textStyle="bold"-->
-        <!--        android:textSize="15dp"-->
-        <!--        android:id="@+id/txtViewSkillSewa"-->
-        <!--        android:layout_marginLeft="135dp">-->
+        </TextView>
 
-        <!--    </TextView>-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="Skill Sewa"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:id="@+id/txtViewSkillSewa"
+            android:layout_marginLeft="135dp">
+
+        </TextView>
+
         <EditText
             android:id="@+id/edtTxtDOI"
             android:layout_width="match_parent"
@@ -131,10 +134,760 @@
 
         </EditText>
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:text="ProblemFinding"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:id="@+id/txtViewProblemFinding"
+            android:layout_marginLeft="5dp">
+
+        </TextView>
+
+        //PFONE
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:text="1. Excessive Leaching through Tiles/Seepage Patches observed at Kitchen Walls."
+            android:textStyle="bold"
+            android:textSize="17dp"
+            android:id="@+id/txtViewPFONE"
+            android:layout_marginLeft="0dp">
+
+        </TextView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:text="Related Photos"
+            android:textStyle="italic"
+            android:textSize="17dp"
+            android:id="@+id/txtViewPFORP"
+            android:layout_marginLeft="0dp">
+
+        </TextView>
+
+        <ImageView
+            android:id="@+id/imgViewPF1A"
+            android:layout_width="100dp"
+            android:layout_height="75dp"
+            android:layout_marginTop="5dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_imgee" />
+
+        <Button
+            android:id="@+id/btnPF1A"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select Image"
+            android:textAllCaps="false">
+
+        </Button>
+
+        <ImageView
+            android:id="@+id/imgViewPF1B"
+            android:layout_width="100dp"
+            android:layout_height="75dp"
+            android:layout_marginTop="5dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_imgee" />
+
+        <Button
+            android:id="@+id/btnPF1B"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select Image"
+            android:textAllCaps="false">
+
+        </Button>
+
+        <ImageView
+            android:id="@+id/imgViewPF1C"
+            android:layout_width="100dp"
+            android:layout_height="75dp"
+            android:layout_marginTop="5dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_imgee" />
+
+        <Button
+            android:id="@+id/btnPF1C"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select Image"
+            android:textAllCaps="false">
+
+        </Button>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:text="Description"
+            android:textStyle="italic"
+            android:textSize="17dp"
+            android:id="@+id/txtViewPFOD"
+            android:layout_marginLeft="0dp">
+
+        </TextView>
+
+        <EditText
+            android:id="@+id/edtTxtPFOD"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:hint="Enter the description">
+
+        </EditText>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:text="Findings"
+            android:textStyle="italic"
+            android:textSize="17dp"
+            android:id="@+id/txtViewPFOF"
+            android:layout_marginLeft="0dp">
+
+        </TextView>
+
+        <EditText
+            android:id="@+id/edtTxtPFOF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:hint="Enter the Findings">
+
+        </EditText>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:text="Recommendation"
+            android:textStyle="italic"
+            android:textSize="17dp"
+            android:id="@+id/txtViewPFOR"
+            android:layout_marginLeft="0dp">
+
+        </TextView>
+
+
+        <EditText
+            android:id="@+id/edtTxtPFOR"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:hint="Enter the Recommendation">
+
+        </EditText>
+
+        //PFTWO
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:text="2. Removal of tile grouts in Bathroom tile flooring/Observation of seepage Patches in bathroom walls.."
+            android:textStyle="bold"
+            android:textSize="17dp"
+            android:id="@+id/txtViewPFTWO"
+            android:layout_marginLeft="0dp">
+
+        </TextView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:text="Related Photos"
+            android:textStyle="italic"
+            android:textSize="17dp"
+            android:id="@+id/txtViewPFTRP"
+            android:layout_marginLeft="0dp">
+
+        </TextView>
+
+        <ImageView
+            android:id="@+id/imgViewPF2A"
+            android:layout_width="100dp"
+            android:layout_height="75dp"
+            android:layout_marginTop="5dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_imgee" />
+
+        <Button
+            android:id="@+id/btnPF2A"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select Image"
+            android:textAllCaps="false">
+
+        </Button>
+
+        <!--        <ImageView-->
+        <!--            android:id="@+id/imgViewPF1B"-->
+        <!--            android:layout_width="100dp"-->
+        <!--            android:layout_height="75dp"-->
+        <!--            android:layout_marginTop="5dp"-->
+        <!--            android:scaleType="fitCenter"-->
+        <!--            android:src="@drawable/ic_imgee" />-->
+
+        <!--        <Button-->
+        <!--            android:id="@+id/btnPF1B"-->
+        <!--            style="@style/Widget.MaterialComponents.Button.TextButton"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:text="Select Image"-->
+        <!--            android:textAllCaps="false">-->
+
+        <!--        </Button>-->
+        <!--        <ImageView-->
+        <!--            android:id="@+id/imgViewPF1C"-->
+        <!--            android:layout_width="100dp"-->
+        <!--            android:layout_height="75dp"-->
+        <!--            android:layout_marginTop="5dp"-->
+        <!--            android:scaleType="fitCenter"-->
+        <!--            android:src="@drawable/ic_imgee" />-->
+
+        <!--        <Button-->
+        <!--            android:id="@+id/btnPF1C"-->
+        <!--            style="@style/Widget.MaterialComponents.Button.TextButton"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:text="Select Image"-->
+        <!--            android:textAllCaps="false">-->
+
+        <!--        </Button>-->
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:text="Description"
+            android:textStyle="italic"
+            android:textSize="17dp"
+            android:id="@+id/txtViewPFTD"
+            android:layout_marginLeft="0dp">
+
+        </TextView>
+
+        <EditText
+            android:id="@+id/edtTxtPFTD"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:hint="Enter the description">
+
+        </EditText>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:text="Findings"
+            android:textStyle="italic"
+            android:textSize="17dp"
+            android:id="@+id/txtViewPFTF"
+            android:layout_marginLeft="0dp">
+
+        </TextView>
+
+        <EditText
+            android:id="@+id/edtTxtPFTF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:hint="Enter the Findings">
+
+        </EditText>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:text="Recommendation"
+            android:textStyle="italic"
+            android:textSize="17dp"
+            android:id="@+id/txtViewPFTR"
+            android:layout_marginLeft="0dp">
+
+        </TextView>
+
+
+        <EditText
+            android:id="@+id/edtTxtPFTR"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:hint="Enter the Recommendation">
+
+        </EditText>
+
+        //PFTHREE
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:text="3. Removal of Paints/Painting Defect."
+            android:textStyle="bold"
+            android:textSize="17dp"
+            android:id="@+id/txtViewPFTHREE"
+            android:layout_marginLeft="0dp">
+
+        </TextView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:text="Related Photos"
+            android:textStyle="italic"
+            android:textSize="17dp"
+            android:id="@+id/txtViewPFTHRP"
+            android:layout_marginLeft="0dp">
+
+        </TextView>
+
+        <ImageView
+            android:id="@+id/imgViewPF3A"
+            android:layout_width="100dp"
+            android:layout_height="75dp"
+            android:layout_marginTop="5dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_imgee" />
+
+        <Button
+            android:id="@+id/btnPF3A"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select Image"
+            android:textAllCaps="false">
+
+        </Button>
+
+        <ImageView
+            android:id="@+id/imgViewPF3B"
+            android:layout_width="100dp"
+            android:layout_height="75dp"
+            android:layout_marginTop="5dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_imgee" />
+
+        <Button
+            android:id="@+id/btnPF3B"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select Image"
+            android:textAllCaps="false">
+
+        </Button>
+
+        <ImageView
+            android:id="@+id/imgViewPF3C"
+            android:layout_width="100dp"
+            android:layout_height="75dp"
+            android:layout_marginTop="5dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_imgee" />
+
+        <Button
+            android:id="@+id/btnPF3C"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select Image"
+            android:textAllCaps="false">
+
+        </Button>
+
+        <ImageView
+            android:id="@+id/imgViewPF3D"
+            android:layout_width="100dp"
+            android:layout_height="75dp"
+            android:layout_marginTop="5dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_imgee" />
+
+        <Button
+            android:id="@+id/btnPF3D"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select Image"
+            android:textAllCaps="false">
+
+        </Button>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:text="Description"
+            android:textStyle="italic"
+            android:textSize="17dp"
+            android:id="@+id/txtViewPFTHD"
+            android:layout_marginLeft="0dp">
+
+        </TextView>
+
+        <EditText
+            android:id="@+id/edtTxtPFTHD"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:hint="Enter the description">
+
+        </EditText>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:text="Findings"
+            android:textStyle="italic"
+            android:textSize="17dp"
+            android:id="@+id/txtViewPFTHF"
+            android:layout_marginLeft="0dp">
+
+        </TextView>
+
+        <EditText
+            android:id="@+id/edtTxtPFTHF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:hint="Enter the Findings">
+
+        </EditText>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:text="Recommendation"
+            android:textStyle="italic"
+            android:textSize="17dp"
+            android:id="@+id/txtViewPFTHR"
+            android:layout_marginLeft="0dp">
+
+        </TextView>
+
+
+        <EditText
+            android:id="@+id/edtTxtPFTHR"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:hint="Enter the Recommendation">
+
+        </EditText>
+
+        //PFFOUR
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:text="4. Water Seepage Through Bathroom"
+            android:textStyle="bold"
+            android:textSize="17dp"
+            android:id="@+id/txtViewPFFOUR"
+            android:layout_marginLeft="0dp">
+
+        </TextView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:text="Related Photos"
+            android:textStyle="italic"
+            android:textSize="17dp"
+            android:id="@+id/txtViewPFFRP"
+            android:layout_marginLeft="0dp">
+
+        </TextView>
+
+        <ImageView
+            android:id="@+id/imgViewPF4A"
+            android:layout_width="100dp"
+            android:layout_height="75dp"
+            android:layout_marginTop="5dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_imgee" />
+
+        <Button
+            android:id="@+id/btnPF4A"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select Image"
+            android:textAllCaps="false">
+
+        </Button>
+
+        <ImageView
+            android:id="@+id/imgViewPF4B"
+            android:layout_width="100dp"
+            android:layout_height="75dp"
+            android:layout_marginTop="5dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_imgee" />
+
+        <Button
+            android:id="@+id/btnPF4B"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select Image"
+            android:textAllCaps="false">
+
+        </Button>
+
+        <ImageView
+            android:id="@+id/imgViewPF4C"
+            android:layout_width="100dp"
+            android:layout_height="75dp"
+            android:layout_marginTop="5dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_imgee" />
+
+        <Button
+            android:id="@+id/btnPF4C"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select Image"
+            android:textAllCaps="false">
+
+        </Button>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:text="Description"
+            android:textStyle="italic"
+            android:textSize="17dp"
+            android:id="@+id/txtViewPFFD"
+            android:layout_marginLeft="0dp">
+
+        </TextView>
+
+        <EditText
+            android:id="@+id/edtTxtPFFD"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:hint="Enter the description">
+
+        </EditText>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:text="Findings"
+            android:textStyle="italic"
+            android:textSize="17dp"
+            android:id="@+id/txtViewPFFF"
+            android:layout_marginLeft="0dp">
+
+        </TextView>
+
+        <EditText
+            android:id="@+id/edtTxtPFFF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:hint="Enter the Findings">
+
+        </EditText>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:text="Recommendation"
+            android:textStyle="italic"
+            android:textSize="17dp"
+            android:id="@+id/txtViewPFFR"
+            android:layout_marginLeft="0dp">
+
+        </TextView>
+
+
+        <EditText
+            android:id="@+id/edtTxtPFFR"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:hint="Enter the Recommendation">
+
+        </EditText>
+
+        //PFFIVE
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:text="5. Construction Joint Issue "
+            android:textStyle="bold"
+            android:textSize="17dp"
+            android:id="@+id/txtViewPFFIVE"
+            android:layout_marginLeft="0dp">
+
+        </TextView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:text="Related Photos"
+            android:textStyle="italic"
+            android:textSize="17dp"
+            android:id="@+id/txtViewPFFIRP"
+            android:layout_marginLeft="0dp">
+
+        </TextView>
+
+        <ImageView
+            android:id="@+id/imgViewPF5A"
+            android:layout_width="100dp"
+            android:layout_height="75dp"
+            android:layout_marginTop="5dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_imgee" />
+
+        <Button
+            android:id="@+id/btnPF5A"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select Image"
+            android:textAllCaps="false">
+
+        </Button>
+
+        <ImageView
+            android:id="@+id/imgViewPF5B"
+            android:layout_width="100dp"
+            android:layout_height="75dp"
+            android:layout_marginTop="5dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_imgee" />
+
+        <Button
+            android:id="@+id/btnPF5B"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select Image"
+            android:textAllCaps="false">
+
+        </Button>
+
+        <ImageView
+            android:id="@+id/imgViewPF5C"
+            android:layout_width="100dp"
+            android:layout_height="75dp"
+            android:layout_marginTop="5dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_imgee" />
+
+        <Button
+            android:id="@+id/btnPF5C"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select Image"
+            android:textAllCaps="false">
+
+        </Button>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:text="Description"
+            android:textStyle="italic"
+            android:textSize="17dp"
+            android:id="@+id/txtViewPFFID"
+            android:layout_marginLeft="0dp">
+
+        </TextView>
+
+        <EditText
+            android:id="@+id/edtTxtPFFID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:hint="Enter the description">
+
+        </EditText>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:text="Findings"
+            android:textStyle="italic"
+            android:textSize="17dp"
+            android:id="@+id/txtViewPFFIF"
+            android:layout_marginLeft="0dp">
+
+        </TextView>
+
+        <EditText
+            android:id="@+id/edtTxtPFFIF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:hint="Enter the Findings">
+
+        </EditText>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:text="Recommendation"
+            android:textStyle="italic"
+            android:textSize="17dp"
+            android:id="@+id/txtViewPFFIR"
+            android:layout_marginLeft="0dp">
+
+        </TextView>
+
+
+        <EditText
+            android:id="@+id/edtTxtPFFIR"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:hint="Enter the Recommendation">
+
+        </EditText>
+
+
         <ImageView
             android:id="@+id/imgViewBackPhoto"
-            android:layout_width="150dp"
-            android:layout_height="125dp"
+            android:layout_width="100dp"
+            android:layout_height="75dp"
             android:layout_marginTop="5dp"
             android:scaleType="fitCenter"
             android:src="@drawable/ic_imgee" />
@@ -146,6 +899,24 @@
             android:layout_height="wrap_content"
             android:paddingVertical="0dp"
             android:text="Select Back Image"
+            android:textAllCaps="false" />
+
+
+        <ImageView
+            android:id="@+id/imgViewPD1"
+            android:layout_width="100dp"
+            android:layout_height="75dp"
+            android:layout_marginTop="5dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_imgee" />
+
+        <Button
+            android:id="@+id/btnSelectPD1"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingVertical="0dp"
+            android:text="Select Problem Findings"
             android:textAllCaps="false" />
 
 

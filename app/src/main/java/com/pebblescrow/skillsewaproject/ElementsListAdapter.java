@@ -40,7 +40,7 @@ public class ElementsListAdapter extends BaseAdapter {
     }
 
     private class ViewHolder {
-        ImageView imgViewFront, imgViewBack;
+        ImageView imgViewFront, imgViewBack, imgViewPDD;
         TextView textViewLocation, textViewInspector, textViewDOI, textViewHN;
     }
     @Override
@@ -53,6 +53,7 @@ public class ElementsListAdapter extends BaseAdapter {
             row = inflater.inflate(layout, null);
             holder.imgViewFront = (ImageView) row.findViewById(R.id.imgViewFront);
             holder.imgViewBack = (ImageView) row.findViewById(R.id.imgViewBack);
+            holder.imgViewPDD = (ImageView) row.findViewById(R.id.imgViewPDD);
             holder.textViewLocation = (TextView) row.findViewById(R.id.txtViewLocation);
             holder.textViewInspector = (TextView) row.findViewById(R.id.txtViewInspector);
             holder.textViewDOI = (TextView) row.findViewById(R.id.txtViewDOI);
@@ -70,6 +71,11 @@ public class ElementsListAdapter extends BaseAdapter {
         holder.imgViewFront.setImageBitmap(frontBitmap);
         Bitmap backBitmap = ImageUtils.decodeFromBase64String(encodedBackImage);
         holder.imgViewBack.setImageBitmap(backBitmap);
+
+        String encodedPDImage = elements.getPDImageEncodedInBase64();
+        Bitmap PDBitmap = ImageUtils.decodeFromBase64String(encodedPDImage);
+        holder.imgViewPDD.setImageBitmap(PDBitmap);
+
         holder.textViewLocation.setText(elements.getLocation());
         holder.textViewInspector.setText(elements.getInspector());
         holder.textViewDOI.setText(elements.getDOI());

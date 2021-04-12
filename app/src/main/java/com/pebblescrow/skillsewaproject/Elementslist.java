@@ -32,12 +32,13 @@ public class Elementslist extends AppCompatActivity {
             int id = cursor.getInt(0);
             String encodedFrontImage = cursor.getString(1);
             String encodedBackImage = cursor.getString(2);
-            String location = cursor.getString(3);
-            String inspector = cursor.getString(4);
-            String DOI = cursor.getString(5);
-            String HouseName = cursor.getString(6);
+            String encodedPDImage = cursor.getString(3);
+            String location = cursor.getString(4);
+            String inspector = cursor.getString(5);
+            String DOI = cursor.getString(6);
+            String HouseName = cursor.getString(7);
 
-            list.add(new Elements(id, encodedFrontImage, encodedBackImage, location, inspector, DOI, HouseName));
+            list.add(new Elements(id, encodedFrontImage, encodedBackImage, encodedPDImage, location, inspector, DOI, HouseName));
 
         }
         adapter.notifyDataSetChanged();
